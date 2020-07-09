@@ -7,8 +7,15 @@ public class GameManager : MonoBehaviour
 
     public static Action OnCoinCollected;
 
+    [NonSerialized] public int coins = 0;
+
     private void Awake()
     {
         Instance = this;
+    }
+
+    private void Start()
+    {
+        OnCoinCollected += () => { coins++; };
     }
 }
