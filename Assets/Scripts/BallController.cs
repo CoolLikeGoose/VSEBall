@@ -6,9 +6,13 @@ public class BallController : MonoBehaviour
 
     private Rigidbody rigidbody;
 
+    private int coins;
+
     private void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
+
+        GameManager.OnCoinCollected += () => { coins++; };
     }
 
     private void Update()
