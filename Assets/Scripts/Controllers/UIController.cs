@@ -11,7 +11,7 @@ public class UIController : MonoBehaviour
     }
 
     private void UpdateCoinsLabel()
-    {
+    {  
         coinsCounter.text = GameManager.Instance.coins.ToString();
     }
 }

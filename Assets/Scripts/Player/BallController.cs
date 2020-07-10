@@ -8,17 +8,22 @@ public class BallController : MonoBehaviour
     private Rigidbody rbody;
 
     [NonSerialized] public Vector3 startAcceleration;
+    [NonSerialized] public Vector3 movement;
 
-    public Vector3 movement;
+    private Vector3 startPos;
 
     private void Start()
     {
         rbody = GetComponent<Rigidbody>();
 
-        Vector3 movement = new Vector3(Input.acceleration.x, Input.acceleration.z, Input.acceleration.y) * 9.8f;
-        rbody.AddForce(movement, ForceMode.Acceleration);
-
         startAcceleration = Input.acceleration;
+        startPos = transform.position;
+
+        GameManager.OnRoundLose += () =>
+        {
+            transform.position = startPos;
+            rbody.velocity = Vector3.zero;
+        };
     }
 
     private void FixedUpdate()
@@ -26,10 +31,10 @@ public class BallController : MonoBehaviour
         #if UNITY_EDITOR
             movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * Time.deltaTime * speed;
             rbody.AddForce(movement);
-#elif UNITY_ANDROID
+        #elif UNITY_ANDROID
             movement = new Vector3(Input.acceleration.x, Input.acceleration.z, Input.acceleration.y) - startAcceleration;
             rbody.AddForce(movement * 9.8f, ForceMode.Acceleration);
-#endif
+        #endif
     }
 
     public void DiscardAcceleration()
