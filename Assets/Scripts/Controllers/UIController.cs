@@ -9,6 +9,8 @@ public class UIController : MonoBehaviour
 
     [SerializeField] private Text text;
 
+    [SerializeField] private ParticleSystem particles;
+
     private void Start()
     {
         GameManager.OnCoinCollected += UpdateCoinsLabel;
@@ -50,6 +52,8 @@ public class UIController : MonoBehaviour
 
     private IEnumerator OnFinish()
     {
+        particles.Play();
+
         float a = 0;
 
         text.text = "FINISHED!";
