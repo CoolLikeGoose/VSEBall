@@ -2,29 +2,6 @@
 
 public class LavaController : MonoBehaviour
 {
-    /*
-    [SerializeField] private float startRadius;
-    [SerializeField] private float deathRadius;
-
-    [SerializeField] private Vector3 startCube;
-    [SerializeField] private Vector3 deathCube;
-
-    private void Start()
-    {
-        startCube = transform.localScale + new Vector3(2, 2, 2);    
-        deathCube = transform.localScale + new Vector3(7, 3, 7);
-    }
-
-    private void OnDrawGizmos()
-    {
-        //Gizmos.DrawWireSphere(transform.position, startRadius);
-        //Gizmos.DrawWireSphere(transform.position, deathRadius);
-
-        Gizmos.DrawWireCube(transform.position, startCube);
-        Gizmos.DrawWireCube(transform.position, deathCube);
-    }
-    */
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
