@@ -22,7 +22,7 @@ public class BallController : MonoBehaviour
         rend = GetComponent<Renderer>();
         startColor = rend.material.color;
 
-        startAcceleration = Input.acceleration;
+        //startAcceleration = Input.acceleration;
         startPos = transform.position;
 
         GameManager.OnRoundLose += () =>
@@ -55,6 +55,6 @@ public class BallController : MonoBehaviour
 
     public void DiscardAcceleration()
     {
-        startAcceleration = Input.acceleration;
+        startAcceleration = new Vector3(Input.acceleration.x, Input.acceleration.z, Input.acceleration.y);
     }
 }

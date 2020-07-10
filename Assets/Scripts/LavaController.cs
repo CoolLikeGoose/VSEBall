@@ -38,11 +38,9 @@ public class LavaController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             BallController playerBall = other.GetComponent<BallController>();
-            if (playerBall.nowLavaCenter == transform.position.x)
-            {
-                playerBall.nowLavaCenter = 0;
-                playerBall.rend.material.color = playerBall.startColor;
-            }
+
+            playerBall.nowLavaCenter = 0;
+            playerBall.rend.material.color = playerBall.startColor;
         }
     }
 }

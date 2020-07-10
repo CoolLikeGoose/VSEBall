@@ -17,6 +17,6 @@ public class DebugLog : MonoBehaviour
         Zaxis.text = $"Z: {Input.acceleration.z}";
         Yaxis.text = $"Y: {Input.acceleration.y}";
         startAxis.text = $"start: {ball.startAcceleration}";
-        nowAxis.text = $"start: {ball.movement}";
+        nowAxis.text = $"now: {ball.movement}";
     }
 }
