@@ -30,6 +30,11 @@ public class BallController : MonoBehaviour
             transform.position = startPos;
             rbody.velocity = Vector3.zero;
         };
+
+        GameManager.OnCheckpoint += () =>
+        {
+            startPos = transform.position;
+        };
     }
 
     //fix it
@@ -55,6 +60,6 @@ public class BallController : MonoBehaviour
 
     public void DiscardAcceleration()
     {
-        startAcceleration = new Vector3(Input.acceleration.x, Input.acceleration.z, Input.acceleration.y);
+        startAcceleration = new Vector3(Input.acceleration.x, Input.acceleration.z, Input.acceleration.y);  
     }
 }
