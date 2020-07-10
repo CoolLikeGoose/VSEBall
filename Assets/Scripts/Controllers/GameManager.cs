@@ -19,6 +19,14 @@ public class GameManager : MonoBehaviour
         OnCoinCollected += () => { coins++; };
     }
 
+    private void OnDestroy()
+    {
+        OnCoinCollected = null;
+        OnRoundLose = null;
+        OnCheckpoint = null;
+        OnFinish = null;
+    }
+
     //Garbage collector
     private void OnTriggerEnter(Collider other)
     {

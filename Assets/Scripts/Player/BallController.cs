@@ -43,7 +43,7 @@ public class BallController : MonoBehaviour
         if (nowLavaCenter != 0) 
         {
             rend.material.color = Color.LerpUnclamped(startColor, Color.black, transform.position.x/nowLavaCenter * 1.3f);
-            if (transform.position.x / nowLavaCenter > 0.7f) { GameManager.OnRoundLose?.Invoke(); Debug.Log("Ebanyi rot etogo casino)"); }
+            if (transform.position.x / nowLavaCenter > 0.7f) { GameManager.OnRoundLose?.Invoke(); }
         }
     }
 

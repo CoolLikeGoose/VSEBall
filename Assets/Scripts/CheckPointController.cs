@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class CheckPointController : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class CheckPointController : MonoBehaviour
         {
             if (isFinish) { GameManager.OnFinish?.Invoke(); return; }
             GameManager.OnCheckpoint?.Invoke();
+
+            Destroy(GetComponent<BoxCollider>());
         }
     }
 }
