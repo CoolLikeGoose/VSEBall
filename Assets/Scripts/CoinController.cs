@@ -11,8 +11,11 @@ public class CoinController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        GameManager.OnCoinCollected?.Invoke();
+        if (other.CompareTag("Player"))
+        {
+            GameManager.OnCoinCollected?.Invoke();
 
-        Destroy(gameObject);
+            Destroy(gameObject);
+        }
     }
 }

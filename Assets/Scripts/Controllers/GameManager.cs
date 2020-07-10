@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public static Action OnCoinCollected;
     public static Action OnRoundLose;
     public static Action OnCheckpoint;
+    public static Action OnFinish;
 
     [NonSerialized] public int coins = 0;
 
